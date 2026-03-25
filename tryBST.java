@@ -70,6 +70,7 @@ tNode deleteRec(tNode root, int key){
             root.right = deleteRec(root.right, root.key);
         }
         return root;
+  }
 }
     //comment 7
     public class tryBST {
@@ -93,6 +94,9 @@ public static void main(String[] args){
         int max = (int) Math.pow(2, n) -1;
         int repetitions = 30;
 
+        double [] populateTimes = new double[repetitions];
+        double [] deleteTimes = new double[repetitions];
+ 
         long populateTotal =0;
         long deleteTotal =0;
 
@@ -115,4 +119,13 @@ public static void main(String[] args){
         }
         double populateAvg = populateTotal/ (double) repetitions;
         double deleteAvg = deleteTotal/ (double) repetitions;
+
+        double stdPopulate = populateTotal/repetitions;
+        double stdDelete = deleteTotal/repetitions;
     //comment 9
+        System.out.println("\nMethod\t\t\tNumber of keys n\tAverage time in ms.\tStandard Deviation");
+        System.out.println("Populate tree\t\t" + max + "\t\t" +populateAvg + "\t\t" + stdPopulate);
+        System.out.println("Remove evens\t\t" + max + "\t\t" +deleteAvg + "\t\t\t" + stdDelete);
+     }
+  }
+//comment 10
