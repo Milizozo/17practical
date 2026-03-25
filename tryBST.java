@@ -18,3 +18,20 @@ class BST{
         root = null;
     }
   //comment 3
+    tNode insertRec(tNode root, int key){
+        if(root == null){
+            root = new tNode (key);
+            return root;
+        }
+        if(key< root.key)
+            root.left = insertRec(root.left, key);
+
+        else if(key > root.key)
+            root.right = insertRec(root.right,key);
+
+        return root;
+    }
+    void insert(int key){
+        root = insertRec(root, key);
+    }
+    //comment 4
