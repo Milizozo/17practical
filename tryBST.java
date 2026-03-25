@@ -44,3 +44,13 @@ class BST{
         return isBST(node.left, min, node.key-1) && isBST(node.right, node.key+1, max);
 }
     //comment 5
+int minimumValue(tNode node){
+        int minimum = node.key;
+        
+        while(node.left != null){
+            minimum = node.left.key;
+            node = node.left;
+        }
+        return minimum;
+}
+    //comment 6
