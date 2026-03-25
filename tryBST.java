@@ -35,3 +35,12 @@ class BST{
         root = insertRec(root, key);
     }
     //comment 4
+    boolean isBST (tNode node, int min, int max){
+        if(node == null)
+            return true;
+        if(node.key < min || node.key > max)
+            return false;
+        
+        return isBST(node.left, min, node.key-1) && isBST(node.right, node.key+1, max);
+}
+    //comment 5
