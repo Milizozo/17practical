@@ -54,3 +54,21 @@ int minimumValue(tNode node){
         return minimum;
 }
     //comment 6
+tNode deleteRec(tNode root, int key){
+        if(root == null)
+            return root;
+        if(key < root.key)
+            root.left = deleteRec(root.left, key);
+        else if(key > root.key)
+            root.right = deleteRec(root.right, key);
+        else{
+            if(root.left ==null)
+                return root.right;
+            else if(root.right == null)
+                return root.left;
+            root.key = minimumValue(root.right);
+            root.right = deleteRec(root.right, root.key);
+        }
+        return root;
+}
+    //comment 7
