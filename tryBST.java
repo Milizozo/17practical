@@ -82,3 +82,9 @@ tNode deleteRec(tNode root, int key){
         buildBalanced(tree, mid+1, end);
     }
         //comment 7
+static void removeEvenNumbers(BST tree, int max){
+        for(int i=2; i<= max; i +=2){
+            tree.root = tree.deleteRec(tree.root, i);
+        }
+}
+//comment 8 
