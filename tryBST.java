@@ -88,3 +88,31 @@ static void removeEvenNumbers(BST tree, int max){
         }
 }
 //comment 8 
+public static void main(String[] args){
+        int n= 18;
+        int max = (int) Math.pow(2, n) -1;
+        int repetitions = 30;
+
+        long populateTotal =0;
+        long deleteTotal =0;
+
+        for(int i=0; i < repetitions; i++){
+            BST tree = new BST();
+            long populateStart = System.currentTimeMillis();
+            buildBalanced(tree,1 ,max);
+            long populateEnd = System.currentTimeMillis();
+            
+            populateTotal += (populateEnd - populateStart);
+            
+            if(!tree.isBST(tree.root, Integer.MIN_VALUE, Integer.MAX_VALUE)){
+                System.out.println("Tree is not a BST!");
+            }
+            
+            long deleteStart =System.currentTimeMillis();
+            removeEvenNumbers(tree, max);
+            long deleteEnd = System.currentTimeMillis();
+            deleteTotal += (deleteEnd - deleteStart);
+        }
+        double populateAvg = populateTotal/ (double) repetitions;
+        double deleteAvg = deleteTotal/ (double) repetitions;
+    //comment 9
