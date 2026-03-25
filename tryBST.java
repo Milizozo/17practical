@@ -72,3 +72,13 @@ tNode deleteRec(tNode root, int key){
         return root;
 }
     //comment 7
+    public class tryBST {
+    static void buildBalanced(BST tree,int start, int end){
+        if(start > end)
+            return;
+        int mid = (start + end) /2;
+        tree.insert(mid);
+        buildBalanced(tree , start,mid-1);
+        buildBalanced(tree, mid+1, end);
+    }
+        //comment 7
